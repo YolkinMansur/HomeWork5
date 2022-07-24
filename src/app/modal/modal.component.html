@@ -1,0 +1,21 @@
+<div class="centerModal">
+  <div class="modalInfo">
+    <img class="modalImg" [src]="film?.Poster" />
+
+    <div class="mainInform">
+      <p class="font-semibold text-xl mb-3">{{film?.Title}}</p>
+      <p><span class="grey">Genre:</span> {{film?.Genre}}</p>
+      <p><span class="grey">Runtime:</span> {{film?.Runtime}}</p>
+      <p><span class="grey">Year:</span> {{film?.Year}}</p>
+
+      <p><span class="grey">Director:</span> {{film?.Director}}</p>
+      <p><span class="grey">Actors:</span> {{film?.Actors}}</p>
+      <p class="plot">{{film?.Plot}}</p>
+      <div class="rating" *ngIf="film!.Ratings">
+        <span class="rate" *ngFor="let r of film!.Ratings">{{r.Source}}
+          {{r.Value}}</span>
+      </div>
+    </div>
+    <button (click)="close()" class="btn ">X</button>
+  </div>
+</div>

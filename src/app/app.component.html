@@ -1,0 +1,18 @@
+<div>
+  <app-form (searchFilm)="getFilms($event)"></app-form>
+  <div class="allFilms">
+    <div class="filmCard" [ngStyle]="{ backgroundImage: 'url(' + film.Poster + ')' }" *ngFor="let film of searchResult">
+      <div class="cardInform">
+        <p class="">{{ film.Title }}</p>
+        <div class="mainInform">
+          <p class="year">{{ film.Year }}</p>
+          <button class="btn" (click)="getInfoFilm(film.imdbID)">
+            More
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal class="findForm" [idFilm]="idFilm" [filmsInfo]="mapFilmInfo" (closeModal)="openModal = false"
+  *ngIf="openModal"></app-modal>
